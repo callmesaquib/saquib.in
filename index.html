@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saquib Akhtar | Portfolio</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0f172a;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      backdrop-filter:blur(12px);
+      background:rgba(15,23,42,0.6);
+      z-index:999;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    nav h1{
+      font-size:28px;
+      font-weight:700;
+      background:linear-gradient(to right,#38bdf8,#818cf8);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    nav ul{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    nav ul li{
+      transition:.3s;
+    }
+
+    nav ul li:hover{
+      color:#38bdf8;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:120px 8%;
+      position:relative;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:#2563eb;
+      filter:blur(150px);
+      opacity:0.25;
+      border-radius:50%;
+      top:10%;
+      left:-10%;
+    }
+
+    .hero::after{
+      content:'';
+      position:absolute;
+      width:450px;
+      height:450px;
+      background:#7c3aed;
+      filter:blur(150px);
+      opacity:0.2;
+      border-radius:50%;
+      bottom:0;
+      right:-10%;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:1;
+      max-width:850px;
+    }
+
+    .hero h2{
+      font-size:62px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero h2 span{
+      background:linear-gradient(to right,#38bdf8,#818cf8);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#cbd5e1;
+      line-height:1.8;
+      margin-bottom:35px;
+    }
+
+    .btns{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 28px;
+      border-radius:12px;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .primary{
+      background:linear-gradient(to right,#2563eb,#7c3aed);
+    }
+
+    .primary:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 30px rgba(37,99,235,0.4);
+    }
+
+    .secondary{
+      border:1px solid rgba(255,255,255,0.2);
+      background:rgba(255,255,255,0.05);
+    }
+
+    .secondary:hover{
+      background:rgba(255,255,255,0.1);
+    }
+
+    /* SECTION */
+
+    section{
+      padding:100px 8%;
+    }
+
+    .section-title{
+      font-size:42px;
+      margin-bottom:50px;
+      text-align:center;
+      position:relative;
+    }
+
+    .section-title::after{
+      content:'';
+      width:90px;
+      height:4px;
+      background:linear-gradient(to right,#38bdf8,#818cf8);
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:-15px;
+      border-radius:10px;
+    }
+
+    /* CARDS */
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:30px;
+      border-radius:22px;
+      transition:.35s;
+      backdrop-filter:blur(10px);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#38bdf8;
+      box-shadow:0 15px 35px rgba(56,189,248,0.15);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      font-size:24px;
+    }
+
+    .card p{
+      color:#cbd5e1;
+      line-height:1.8;
+    }
+
+    /* SKILLS */
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+      justify-content:center;
+    }
+
+    .skill{
+      padding:12px 20px;
+      background:rgba(255,255,255,0.06);
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.1);
+      transition:.3s;
+    }
+
+    .skill:hover{
+      background:#2563eb;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact p{
+      color:#cbd5e1;
+      margin-bottom:25px;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      color:#94a3b8;
+    }
+
+    @media(max-width:768px){
+
+      .hero h2{
+        font-size:42px;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .section-title{
+        font-size:32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <h1>Saquib.in</h1>
+
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h2>
+        Hi, I'm <span>Saquib Akhtar</span>
+      </h2>
+
+      <p>
+        MBA Finance candidate with hands-on experience in financial operations,
+        accounts management, inventory tracking, billing systems, and process optimization.
+        Passionate about combining finance with technology to create efficient systems and smarter workflows.
+      </p>
+
+      <div class="btns">
+        <a href="#" class="btn primary">Download Resume</a>
+        <a href="#contact" class="btn secondary">Contact Me</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Finance & Operations</h3>
+
+        <p>
+          Experienced in billing systems, reconciliation,
+          vendor coordination, inventory management,
+          and financial reporting using Tally ERP & Excel.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Analytical Thinking</h3>
+
+        <p>
+          Skilled in financial analysis, ratio analysis,
+          capital budgeting, and process optimization with
+          strong attention to detail.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Technology Driven</h3>
+
+        <p>
+          Comfortable working with Excel automation,
+          ERP systems, and modern digital workflows
+          to improve operational efficiency.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section id="experience">
+
+    <h2 class="section-title">Experience</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Sadhu Medical Store</h3>
+
+        <p>
+          Managed 100+ daily financial transactions with 99% accuracy,
+          handled billing operations, inventory reconciliation,
+          supplier coordination, and daily reporting.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Process Optimization</h3>
+
+        <p>
+          Reduced inventory discrepancies by 25% and improved operational efficiency by 20%
+          through Excel-based tracking systems and workflow improvements.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Financial Reporting</h3>
+
+        <p>
+          Enhanced cash flow visibility by 30% through
+          detailed financial reporting, analysis, and structured reconciliation processes.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills">
+
+      <div class="skill">Financial Analysis</div>
+      <div class="skill">Tally ERP</div>
+      <div class="skill">Microsoft Excel</div>
+      <div class="skill">Pivot Tables</div>
+      <div class="skill">VLOOKUP</div>
+      <div class="skill">Inventory Management</div>
+      <div class="skill">Financial Reporting</div>
+      <div class="skill">Billing & Invoicing</div>
+      <div class="skill">Accounts Management</div>
+      <div class="skill">Process Optimization</div>
+      <div class="skill">Data Analysis</div>
+      <div class="skill">Cash Flow Analysis</div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="contact">
+
+    <h2 class="section-title">Contact</h2>
+
+    <p>
+      Let’s connect for opportunities, collaborations, or finance-tech discussions.
+    </p>
+
+    <div class="btns">
+      <a href="mailto:akhtarrehan784@gmail.com" class="btn primary">
+        Email Me
+      </a>
+
+      <a href="https://linkedin.com/in/akhtarsaquib" target="_blank" class="btn secondary">
+        LinkedIn
+      </a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Saquib Akhtar • Built with HTML & CSS ✨
+  </footer>
+
+</body>
+</html>
